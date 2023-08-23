@@ -174,9 +174,14 @@ var finderQuery = async (req, res) => {
   };
   res.status(200).json(response);
 };
-var setGetQuery = (req, res) => {
+var setGetQuery = async (req, res) => {
+  //   let data = await Students.create({
+  //     name: "hacker 1",
+  //     email: "hacker1@gmail.com",
+  //   });
+  let data = await Students.findAll({});
   let response = {
-    data: "Setter Getter",
+    data: data,
   };
   res.status(200).json(response);
 };
