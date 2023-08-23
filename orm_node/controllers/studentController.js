@@ -200,6 +200,41 @@ let Validation = async (req, res) => {
     res.status(200).json(e);
   }
 };
+var rawQuery = async (req, res) => {
+  //   const users = await db.sequelize.query("select * from students");
+  //   const users = await db.sequelize.query(
+  //     "select * from students where gender=:gender",
+  //     {
+  //       replacements: { gender: "male" },
+  //     }
+  //   );
+  //   const users = await db.sequelize.query(
+  //     "select * from students where gender=?",
+  //     {
+  //       replacements: ["male"],
+  //     }
+  //   );
+  //   const users = await db.sequelize.query(
+  //     "select * from students where gender IN(:gender)",
+  //     {
+  //       replacements: { gender: ["male", "female"] },
+  //     }
+  //   );
+  //   const users = await db.sequelize.query(
+  //     "select * from students where email LIKE :searchEmail",
+  //     {
+  //       replacements: { searchEmail: "%@gmail.com" },
+  //     }
+  //   );
+  const users = await db.sequelize.query(
+    "select * from students where gender=$gender",
+    {
+      bind: { gender: "male" },
+    }
+  );
+  console.log(users);
+  res.status(200).json(users);
+};
 module.exports = {
   addStudent,
   crudOpearation,
@@ -207,4 +242,5 @@ module.exports = {
   finderQuery,
   setGetQuery,
   Validation,
+  rawQuery,
 };

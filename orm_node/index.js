@@ -11,4 +11,5 @@ app.get("/query", studentContr.queryData);
 app.get("/finder", studentContr.finderQuery);
 app.get("/setter-getter", studentContr.setGetQuery);
 app.get("/validation", studentContr.Validation);
+app.get("/raw-query", studentContr.rawQuery);
 app.listen(3000);
