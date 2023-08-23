@@ -18,10 +18,24 @@ module.exports = (sequelize, DataTypes) => {
       },
       email: {
         type: DataTypes.STRING,
-        defaultValue: "test@gmai.com",
+        // defaultValue: "test@gmai.com",
+        allowNull: false,
+        unique: true,
       },
       gender: {
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          // equals: "male",
+          //   equals: {
+          //     args: "male",
+          //     msg: "Plase Select A Valid Gender",
+          //   },
+          isIn: {
+            args: [["male", "female"]],
+            msg: "Plase Enter Valid Gender",
+          },
+        },
       },
     },
     {

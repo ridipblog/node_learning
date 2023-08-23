@@ -185,10 +185,26 @@ var setGetQuery = async (req, res) => {
   };
   res.status(200).json(response);
 };
+let Validation = async (req, res) => {
+  try {
+    let data = await Students.create({
+      name: "hacker 4",
+      email: "hacker4@gmail.com",
+      gender: "femalew",
+    });
+    res.status(200).json("Inserted");
+  } catch (e) {
+    e.errors.forEach((error) => {
+      console.log(error.validatorKey);
+    });
+    res.status(200).json(e);
+  }
+};
 module.exports = {
   addStudent,
   crudOpearation,
   queryData,
   finderQuery,
   setGetQuery,
+  Validation,
 };
