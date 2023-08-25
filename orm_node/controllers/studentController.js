@@ -1,7 +1,9 @@
 const { response } = require("express");
 var db = require("../models/conn.js");
 const Students = db.students;
-const { Sequelize, Op } = require("sequelize");
+const Posts = db.posts;
+const { Sequelize, Op, where } = require("sequelize");
+const students = require("../models/students.js");
 var addStudent = async (req, res) => {
   // let data=await Students.build({name:'Coder 2',email:'coder2@gamil.com'});\
   // await data.save();
@@ -235,6 +237,7 @@ var rawQuery = async (req, res) => {
   console.log(users);
   res.status(200).json(users);
 };
+
 module.exports = {
   addStudent,
   crudOpearation,
