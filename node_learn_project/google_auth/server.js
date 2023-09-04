@@ -9,8 +9,8 @@ app.use(session({
     saveUninitialized: true
 }));
 passport.use(new googleStrategy({
-    clientID: "784573559341-mm6nd9pmtd41f8t9l0j9vpqgjuh65q3j.apps.googleusercontent.com",
-    clientSecret: "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",
+    clientID: "client_id",
+    clientSecret: "client_secret",
     callbackURL: "/auth/google/callback"
 }, (accessToken, refreshToekn, profile, done) => {
     // if user eleary exits in your database loginn otherwise 
